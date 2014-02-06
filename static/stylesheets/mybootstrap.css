@@ -1,0 +1,43 @@
+body {
+  background-color: #f5f5f5;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+/* Add a MovieQuote modal. */
+.input-group-addon {
+	width: 100px;
+	text-alignment: left;
+}
+
+#movie_title, 
+#quote {
+	width: 440px;
+}
+
+/* Edit buttons. */
+.individual-delete-button {
+	margin-left: 5px;
+}
+
+.quote-info, .row-buttons {
+	display: inline-block;
+}
+
+.row-buttons{
+	position: absolute;
+	top: 50%;
+	margin-top: -22px;
+	right: 20px;
+}
+
+.quoteIcon{
+	position: absolute;
+	top: 50%;
+	margin-top: -13px;
+	right: 20px;
+}
+
+.narrow-for-edit {
+	width: calc(100% - 150px);
+}

@@ -1,0 +1,23 @@
+CACHE MANIFEST
+# v1 - 2011-08-13
+# This is a comment.
+
+CACHE:
+
+/static/fonts/glyphicons-halflings-regular.svg
+/static/fonts/glyphicons-halflings-regular.ttf
+/static/fonts/glyphicons-halflings-regular.woff
+
+/static/js/jquery.min.js
+/static/js/bootstrap.min.js
+/static/js/mybootstrap.js
+
+/static/stylesheets/bootstrap.min.css
+/static/stylesheets/mybootstrap.css
+/static/stylesheets/bootstrap-theme.min.css
+
+SETTINGS:
+prefer-online
+
+NETWORK:
+*

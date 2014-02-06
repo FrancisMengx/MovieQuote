@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery UI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link type="text/css" rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/static/stylesheets/myjqueryui.css" rel="stylesheet">
+   
+    
+	<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script type="text/javascript" src="/static/js/myjqueryui.js"></script>
+</head>
+<body>
+
+
+<ul id="menu">
+  <li><a href="#">Movie Quotes</a>
+    <ul>
+      <li><a id='display-add-quote-modal' href="#">Add a Quote</a></li>
+      <li><a id='toggle-edit-mode-button' href="#">Edit</a></li>
+      <li><a id='refresh-button' href="#">Refresh</a></li>
+    </ul>
+  </li>
+</ul>
+<hr>
+<ul id="outputLog">
+
+
+<div id="dialog-form" title="Add a quote">
+  <form>
+  <fieldset>
+    <label for="movie_title">Movie Title:</label>
+    <input id="movie_title" type="text" name="movie_title" class="text ui-widget-content ui-corner-all">
+    <label for="email">Quote:</label>
+    <input id="quote" type="text" name="quote" value="" class="text ui-widget-content ui-corner-all">
+  </fieldset>
+  </form>
+</div>
+
+
+	<script type="text/javascript">
+        function init() {
+        	rh.moviequotes.init('//' + window.location.host + '/_ah/api');
+        }
+    </script>
+	<script src="https://apis.google.com/js/client.js?onload=init"></script>
+</body>
+</html>

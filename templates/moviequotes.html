@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Movie Quotes</title>
+  <link rel="stylesheet" type="text/css" href="static/stylesheets/moviequotes.css" />
+</head>
+<body>
+	<h1>Add a movie quote</h1>
+	<form action="" method="post">
+	  <table>
+		<tr>
+		  <td>Movie Title:</td>
+		  <td><input type="text" name="movie_title"></td>
+		</tr>
+		<tr>
+		  <td>Quote:</td>
+		  <td><input type="text" name="quote"></td>
+		</tr>
+		<tr>
+		  <td></td>
+		  <td><input style="float: right;" type="submit" value="Submit"></td>
+		</tr>
+	  </table>
+	</form>
+	<hr>
+	<h1>Quotes</h1>
+	<ul>
+	  {% for moviequote in moviequotes %}
+		<li>
+		  <b>{{moviequote.quote}}</b>
+		  <div class="movie-title" style="margin-left: 12px;">- {{moviequote.movie_title}}</div>
+		</li>
+	  {% endfor %}
+	</ul>
+</body>
+</html>

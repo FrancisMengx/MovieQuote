@@ -1,0 +1,48 @@
+application: mengx-movie-quotes
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+# Serving static files (css, images, etc)
+- url: /static
+  static_dir: static
+
+# Endpoints handler
+- url: /_ah/spi/.*
+  script: movie_quotes_api.app
+
+- url: /static/(.*\.appcache)
+  static_files: static/\1
+  mime_type: text/cache-manifest
+  upload: static/(.*\.appcache)
+
+# JavaScript Ajax web client
+- url: /bootstrap\.html
+  static_files: static/bootstrap.html
+  upload: static/bootstrap\.html
+  secure: always
+
+# JavaScript Ajax web client
+- url: /jqueryui\.html
+  static_files: static/jqueryui.html
+  upload: static/jqueryui\.html
+  secure: always
+
+# Main handler
+- url: /.*
+  script: main.app
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
+- name: endpoints
+  version: latest
+
