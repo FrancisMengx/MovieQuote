@@ -4,9 +4,33 @@
     <list default="true" id="df6087eb-759e-4374-a6aa-6fafa40bceb7" name="Default" comment="" />
     <ignored path="mengx-movie-quotes.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/mybootstrap.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1391706427074" ignored="false" />
+    <file path="/mybootstrap.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392253622980" ignored="false" />
     <file path="/bootstrap.html" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1391706067759" ignored="false" />
     <file path="/moviequotes.appcache" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1391700758155" ignored="false" />
+    <file path="/Dummy.txt" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392184381912" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../node/plj333/loldex/views/layout.jade" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392183609382" ignored="false" />
+    <file path="/layout.jade" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392183609382" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../node/plj333/loldex/public/stylesheets/style.css" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392183205033" ignored="false" />
+    <file path="/style.css" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392183205033" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../node/plj333/loldex/routes/index.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392184738986" ignored="false" />
+    <file path="/index.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392184738678" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../node/plj333/loldex/routes/login;.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392149576722" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../node/plj333/loldex/routes/register.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392179992507" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../node/plj333/loldex/routes/login.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392182235344" ignored="false" />
+    <file path="/login.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392182234313" ignored="false" />
+    <file path="/register.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392179985008" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../node/plj333/loldex/models/User.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392180068734" ignored="false" />
+    <file path="/User.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392180053971" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../node/plj333/loldex/views/index.jade" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392185086788" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../node/plj333/loldex/public/javascripts/nav.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392182294085" ignored="false" />
+    <file path="/nav.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392181562533" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../node/trackwav-v1/views/layout.jade" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392174977871" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../node/plj333/loldex/models/db.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392175395763" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../node/plj333/loldex/dbSetting.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392175427199" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../node/plj333/loldex/app.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392183389573" ignored="false" />
+    <file path="/index.jade" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392185083104" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../node/plj333/loldex/routes/hackIndex.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392184811839" ignored="false" />
+    <file path="/hackIndex.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392184810145" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +53,7 @@
       <file leaf-file-name="mybootstrap.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/js/mybootstrap.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="213" column="0" selection-start="5564" selection-end="5564" vertical-scroll-proportion="0.33285713">
+            <state line="323" column="2" selection-start="8678" selection-end="8678" vertical-scroll-proportion="-0.19428572">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -37,21 +61,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="moviequotes.appcache" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/moviequotes.appcache">
+      <file leaf-file-name="bootstrap.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/bootstrap.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="1" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0">
+            <state line="28" column="42" selection-start="1340" selection-end="1342" vertical-scroll-proportion="-6.6923075">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/bootstrap.html">
+      <file leaf-file-name="myjqueryui.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/myjqueryui.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="6" selection-start="887" selection-end="887" vertical-scroll-proportion="-3.2692308">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#ul#1;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -204,9 +228,10 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="Template Data Languages" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../node/DSP_FileSys" />
+    <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
@@ -320,6 +345,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/bootstrap.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="6" selection-start="887" selection-end="887" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="32" selection-start="414" selection-end="414" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/mybootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/bootstrap.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="6" selection-start="887" selection-end="887" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="32" selection-start="414" selection-end="414" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/mybootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/bootstrap.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="6" selection-start="887" selection-end="887" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="32" selection-start="414" selection-end="414" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/mybootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="32" selection-start="414" selection-end="414" vertical-scroll-proportion="0.0">
@@ -329,23 +423,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/moviequotes.appcache">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="1" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="22" column="1" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/bootstrap.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="6" selection-start="887" selection-end="887" vertical-scroll-proportion="-3.2692308">
+        <state line="28" column="42" selection-start="1340" selection-end="1342" vertical-scroll-proportion="-6.6923075">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/myjqueryui.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#ul#1;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/mybootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="213" column="0" selection-start="5564" selection-end="5564" vertical-scroll-proportion="0.33285713">
+        <state line="323" column="2" selection-start="8678" selection-end="8678" vertical-scroll-proportion="-0.19428572">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

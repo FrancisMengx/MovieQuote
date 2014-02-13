@@ -19,7 +19,7 @@ rh.moviequotes.quotes = {}
 
 rh.moviequotes.offlineDeleted = []
 
-
+rh.moviequotes.currentLimit = 10;
 /**
  * @param {bool}
  *            Tracks the editing status.
@@ -89,7 +89,7 @@ rh.moviequotes.toggleEdit = function () {
 		$('.row-buttons').fadeIn('fast');
 		$('.quote-info').addClass('narrow-for-edit');
 	}
-}
+};
 
 
 /**
@@ -107,7 +107,7 @@ rh.moviequotes.getQuoteId = function ($rowButton) {
 		}
 	}
 	return quoteId;
-}
+};
 
 
 /**
@@ -121,9 +121,8 @@ rh.moviequotes.deleteQuote = function ($deleteButton) {
 		} else {
 			rh.moviequotes.localstorage.deleteQuote(quoteId);
 		}
-
 	}
-}
+};
 
 
 /**
@@ -285,6 +284,7 @@ rh.moviequotes.init = function () {
 	rh.moviequotes.enableButtons();
 	rh.moviequotes.enableNetworkListeners();
 	rh.moviequotes.localstorage.listMovieQuotes();
+	rh.moviequotes.enableBottomRefresh();
 
 
 	// TESTING
@@ -297,7 +297,9 @@ rh.moviequotes.init = function () {
 function clientJsLoaded() {
 	rh.moviequotes.onClientJsLoad('//' + window.location.host + '/_ah/api');
 }
-
+/**
+ * reload clientjs after back online.
+ */
 function clientJsReload() {
 	rh.moviequotes.onClientJsReload('//' + window.location.host + '/_ah/api');
 }
@@ -316,6 +318,11 @@ rh.moviequotes.onClientJsReload = function (apiRoot) {
 	gapi.client.load('moviequotes', 'v1', callback, apiRoot);
 };
 
+
+rh.moviequotes.enableBottomRefresh = function(){
+
+};
+
 /**
  * Initializes the application.
  *
@@ -329,7 +336,6 @@ rh.moviequotes.onClientJsLoad = function (apiRoot) {
 		console.log("Loaded an api");
 		if (--apisToLoad == 0) {
 			rh.moviequotes.moviequotesApiDidLoad = true;
-
 			rh.moviequotes.endpoints.listMovieQuotes();
 		}
 	}
@@ -363,6 +369,12 @@ rh.moviequotes.localstorage.listMovieQuotes = function () {
 		rh.moviequotes.quotes[movieQuote.id] = movieQuote;
 	}
 };
+/**
+ * insert or edit movie quote
+ * @param movieTitle movie title
+ * @param quote movie quote
+ */
+
 
 rh.moviequotes.localstorage.insertMovieQuote = function (movieTitle, quote) {
 	var postJson = {
@@ -370,61 +382,83 @@ rh.moviequotes.localstorage.insertMovieQuote = function (movieTitle, quote) {
 		'quote': quote
 	};
 	if (rh.moviequotes.selectedId == rh.moviequotes.NO_ID_SELECTED) {
-		var items = JSON.parse(localStorage['last_list_response']) || [];
-		postJson.id = items.length;
-		var offlineItems;
-		if (localStorage['offline_insert'] != "[]") {
-			offlineItems = JSON.parse(localStorage['offline_insert']);
-			offlineItems.unshift(postJson);
-			localStorage['offline_insert'] = JSON.stringify(offlineItems);
-		} else {
-
-			inserted = [postJson];
-			localStorage['offline_insert'] = JSON.stringify(inserted);
-		}
-
-
-		items.unshift(postJson);
-
-		localStorage['last_list_response'] = JSON.stringify(items);
-		rh.moviequotes.quotes[postJson.id] = postJson;
-		rh.moviequotes.localstorage.print(postJson);
+		rh.moviequotes.localstorage.insertion(postJson);
 	} else {
-		$('#' + rh.moviequotes.selectedId + ' .list-group-item-heading').html(movieTitle);
-		$('#' + rh.moviequotes.selectedId + ' .list-group-item-text').html(quote);
-		var items = JSON.parse(localStorage['last_list_response']);
-		var offlineInsert = JSON.parse(localStorage['offline_insert']);
-		if (parseInt(rh.moviequotes.selectedId) < 1000) {
-			for (var i = 0; i < items.length; i++) {
-				if (items[i].id == rh.moviequotes.selectedId) {
-					items[i].movie_title = movieTitle;
-					items[i].quote = quote;
-					localStorage['last_list_response'] = JSON.stringify(items);
-				}
-			}
-			for (var j = 0; j < offlineInsert.length; j++) {
-				if (offlineInsert[j].id == rh.moviequotes.selectedId) {
-					offlineInsert[j].movie_title = movieTitle;
-					offlineInsert[j].quote = quote;
-					localStorage['offline_insert'] = JSON.stringify(offlineInsert);
-				}
-			}
-		} else {
-			for (var i = 0; i < items.length; i++) {
-				if (items[i].id == rh.moviequotes.selectedId) {
-					var edit = JSON.parse(localStorage['offline_edit']);
-					items[i].movie_title = movieTitle;
-					items[i].quote = quote;
-					edit.unshift(items[i]);
-					localStorage['offline_edit'] = JSON.stringify(edit);
-					localStorage['last_list_response'] = JSON.stringify(items);
-				}
-			}
-
-		}
+		rh.moviequotes.localstorage.edit(postJson);
 	}
 	$('#add-quote-modal').modal('hide');
 };
+
+/**
+ * Actual insertion
+ * @param postJson data to store and send
+ */
+rh.moviequotes.localstorage.insertion = function(postJson){
+	var items = JSON.parse(localStorage['last_list_response']) || [];
+	postJson.id = items.length;
+	var offlineItems;
+	if (localStorage['offline_insert'] != "[]") {
+		offlineItems = JSON.parse(localStorage['offline_insert']);
+		offlineItems.unshift(postJson);
+		localStorage['offline_insert'] = JSON.stringify(offlineItems);
+	} else {
+
+		inserted = [postJson];
+		localStorage['offline_insert'] = JSON.stringify(inserted);
+	}
+
+
+	items.unshift(postJson);
+
+	localStorage['last_list_response'] = JSON.stringify(items);
+	rh.moviequotes.quotes[postJson.id] = postJson;
+	rh.moviequotes.localstorage.print(postJson);
+};
+
+/**
+ * Actual edit
+ * @param postJson data to store and send
+ */
+rh.moviequotes.localstorage.edit = function(postJson){
+	$('#' + rh.moviequotes.selectedId + ' .list-group-item-heading').html(movieTitle);
+	$('#' + rh.moviequotes.selectedId + ' .list-group-item-text').html(quote);
+	var items = JSON.parse(localStorage['last_list_response']);
+	var offlineInsert = JSON.parse(localStorage['offline_insert']);
+	if (parseInt(rh.moviequotes.selectedId) < 1000) {
+		for (var i = 0; i < items.length; i++) {
+			if (items[i].id == rh.moviequotes.selectedId) {
+				items[i].movie_title = movieTitle;
+				items[i].quote = quote;
+				localStorage['last_list_response'] = JSON.stringify(items);
+			}
+		}
+		for (var j = 0; j < offlineInsert.length; j++) {
+			if (offlineInsert[j].id == rh.moviequotes.selectedId) {
+				offlineInsert[j].movie_title = movieTitle;
+				offlineInsert[j].quote = quote;
+				localStorage['offline_insert'] = JSON.stringify(offlineInsert);
+			}
+		}
+	} else {
+		for (var i = 0; i < items.length; i++) {
+			if (items[i].id == rh.moviequotes.selectedId) {
+				var edit = JSON.parse(localStorage['offline_edit']);
+				items[i].movie_title = movieTitle;
+				items[i].quote = quote;
+				edit.unshift(items[i]);
+				localStorage['offline_edit'] = JSON.stringify(edit);
+				localStorage['last_list_response'] = JSON.stringify(items);
+			}
+		}
+
+	}
+};
+
+
+/**
+ * local print
+ * @param movieQuote
+ */
 
 rh.moviequotes.localstorage.print = function (movieQuote) {
 	var offlineInsert = JSON.parse(localStorage['offline_insert']);
@@ -435,6 +469,7 @@ rh.moviequotes.localstorage.print = function (movieQuote) {
 	$buttonGroup = $('<div class="row-buttons"></div>');
 	$buttonGroup.append('<button class = "btn btn-success individual-edit-button">Edit</button>');
 	$buttonGroup.append('<button class = "btn btn-danger individual-delete-button">Delete</button>');
+	//if a quote is in the local insertion, then print with offline mark.
 	for (var i = 0; i < offlineInsert.length; i++) {
 		if (offlineInsert[i].id == movieQuote.id) {
 			$quoteInfo.append(
@@ -444,8 +479,6 @@ rh.moviequotes.localstorage.print = function (movieQuote) {
 
 		}
 	}
-
-
 	if (rh.moviequotes.editEnabled) {
 		$quoteInfo.addClass('narrow-for-edit');
 	} else {
@@ -505,7 +538,7 @@ rh.moviequotes.localstorage.deleteQuote = function (movieQuoteId) {
  */
 rh.moviequotes.endpoints.listMovieQuotes = function () {
 
-	gapi.client.moviequotes.quote.list({'order': '-last_touch_date_time'}).execute(
+	gapi.client.moviequotes.quote.list({'order': '-last_touch_date_time', limit:rh.moviequotes.currentLimit}).execute(
 		function (resp) {
 			if (!resp.code) {
 				localStorage['offline_edit'] = JSON.stringify([]);
