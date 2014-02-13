@@ -4,7 +4,7 @@
     <list default="true" id="df6087eb-759e-4374-a6aa-6fafa40bceb7" name="Default" comment="" />
     <ignored path="mengx-movie-quotes.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/mybootstrap.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392253622980" ignored="false" />
+    <file path="/mybootstrap.js" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392256281620" ignored="false" />
     <file path="/bootstrap.html" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1391706067759" ignored="false" />
     <file path="/moviequotes.appcache" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1391700758155" ignored="false" />
     <file path="/Dummy.txt" changelist="df6087eb-759e-4374-a6aa-6fafa40bceb7" time="1392184381912" ignored="false" />
@@ -53,7 +53,7 @@
       <file leaf-file-name="mybootstrap.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/js/mybootstrap.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="323" column="2" selection-start="8678" selection-end="8678" vertical-scroll-proportion="-0.19428572">
+            <state line="151" column="9" selection-start="4016" selection-end="4016" vertical-scroll-proportion="0.47857141">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -444,7 +444,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/mybootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="323" column="2" selection-start="8678" selection-end="8678" vertical-scroll-proportion="-0.19428572">
+        <state line="151" column="9" selection-start="4016" selection-end="4016" vertical-scroll-proportion="0.47857141">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

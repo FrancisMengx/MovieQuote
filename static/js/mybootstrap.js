@@ -19,7 +19,7 @@ rh.moviequotes.quotes = {}
 
 rh.moviequotes.offlineDeleted = []
 
-rh.moviequotes.currentLimit = 10;
+rh.moviequotes.currentLimit;
 /**
  * @param {bool}
  *            Tracks the editing status.
@@ -143,7 +143,7 @@ rh.moviequotes.enableButtons = function () {
 			if (rh.moviequotes.editEnabled) {
 				rh.moviequotes.toggleEdit();
 			}
-			rh.moviequotes.endpoints.listMovieQuotes();
+			rh.moviequotes.endpoints.listMovieQuotes((JSON.parse(localStorage['last_list_response']).length/10+1)*10);
 		} else {
 			if (rh.moviequotes.editEnabled) {
 				rh.moviequotes.toggleEdit();
@@ -281,10 +281,12 @@ rh.moviequotes.init = function () {
 	if (!navigator.onLine) {
 		$(".offline-icon").fadeIn();
 	}
+	rh.moviequotes.currentLimit = 10;
 	rh.moviequotes.enableButtons();
+	rh.moviequotes.enableBottomRefresh();
 	rh.moviequotes.enableNetworkListeners();
 	rh.moviequotes.localstorage.listMovieQuotes();
-	rh.moviequotes.enableBottomRefresh();
+
 
 
 	// TESTING
@@ -320,7 +322,19 @@ rh.moviequotes.onClientJsReload = function (apiRoot) {
 
 
 rh.moviequotes.enableBottomRefresh = function(){
+	$(window).scroll(function(){
+		if ($(window).scrollTop() == $(document).height()-$(window).height()){
 
+			var quoteList = JSON.parse(localStorage['last_list_response']);
+			rh.moviequotes.endpoints.listMovieQuotes((quoteList.length/10 + 1)*10);
+			console.log('Bottom refreshing, current limit = '+(quoteList.length/10 + 1)*10);
+		}
+	});
+//	$(window).scroll(function(){
+//		if ($(window).scrollTop() == $(document).height()-$(window).height()){
+//			alert("We're at the bottom of the page!!");
+//		}
+//	});
 };
 
 /**
@@ -384,7 +398,7 @@ rh.moviequotes.localstorage.insertMovieQuote = function (movieTitle, quote) {
 	if (rh.moviequotes.selectedId == rh.moviequotes.NO_ID_SELECTED) {
 		rh.moviequotes.localstorage.insertion(postJson);
 	} else {
-		rh.moviequotes.localstorage.edit(postJson);
+		rh.moviequotes.localstorage.edit(movieTitle, quote);
 	}
 	$('#add-quote-modal').modal('hide');
 };
@@ -419,7 +433,7 @@ rh.moviequotes.localstorage.insertion = function(postJson){
  * Actual edit
  * @param postJson data to store and send
  */
-rh.moviequotes.localstorage.edit = function(postJson){
+rh.moviequotes.localstorage.edit = function(movieTitle,quote){
 	$('#' + rh.moviequotes.selectedId + ' .list-group-item-heading').html(movieTitle);
 	$('#' + rh.moviequotes.selectedId + ' .list-group-item-text').html(quote);
 	var items = JSON.parse(localStorage['last_list_response']);
@@ -536,9 +550,9 @@ rh.moviequotes.localstorage.deleteQuote = function (movieQuoteId) {
 /**
  * Lists MovieQuotes via the API.
  */
-rh.moviequotes.endpoints.listMovieQuotes = function () {
+rh.moviequotes.endpoints.listMovieQuotes = function (limit) {
 
-	gapi.client.moviequotes.quote.list({'order': '-last_touch_date_time', limit:rh.moviequotes.currentLimit}).execute(
+	gapi.client.moviequotes.quote.list({'order': '-last_touch_date_time', limit:limit}).execute(
 		function (resp) {
 			if (!resp.code) {
 				localStorage['offline_edit'] = JSON.stringify([]);
@@ -546,6 +560,7 @@ rh.moviequotes.endpoints.listMovieQuotes = function () {
 				localStorage['offline_insert'] = JSON.stringify([]);
 				localStorage['last_list_response'] = JSON.stringify(resp.items);
 				$('#outputLog').html('');
+				rh.moviequotes.currentLimit = ((resp.items/10)+1)*10;
 				resp.items = resp.items || [];
 				// Loop through in reverse order since the newest goes on top.
 				rh.moviequotes.quotes = {};
