@@ -5,15 +5,15 @@ body {
 }
 
 /* Add a MovieQuote modal. */
-.input-group-addon {
-	width: 100px;
-	text-alignment: left;
-}
+/*.input-group-addon {*/
+	/*width: 100px;*/
+	/*text-alignment: left;*/
+/*}*/
 
-#movie_title, 
-#quote {
-	width: 440px;
-}
+/*#movie_title,*/
+/*#quote {*/
+	/*width: auto;*/
+/*}*/
 
 /* Edit buttons. */
 .individual-delete-button {
@@ -41,3 +41,4 @@ body {
 .narrow-for-edit {
 	width: calc(100% - 150px);
 }
+

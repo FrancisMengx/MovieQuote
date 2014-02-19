@@ -233,7 +233,7 @@ rh.moviequotes.uploadOfflineEdit = function () {
 		rh.moviequotes.endpoints.insertMovieQuote(offlineEdited[i].movie_title, offlineEdited[i].quote);
 	}
 	localStorage['offline_edit'] = "[]";
-}
+};
 
 rh.moviequotes.uploadOfflineDelete = function () {
 	if (localStorage['offline_delete'] != "[]") {
@@ -244,8 +244,7 @@ rh.moviequotes.uploadOfflineDelete = function () {
 		}
 		localStorage['offline_delete'] = "[]";
 	}
-
-}
+};
 
 rh.moviequotes.uploadOfflineInsert = function () {
 	if (localStorage['offline_insert'] == "[]") {
@@ -269,7 +268,7 @@ rh.moviequotes.uploadOfflineInsert = function () {
 	}
 	localStorage['offline_insert'] = JSON.stringify([]);
 	rh.moviequotes.localEntryCount = 0;
-}
+};
 
 
 /**
